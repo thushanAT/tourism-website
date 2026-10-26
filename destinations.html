@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explore Destinations - TravelMate</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 font-sans text-gray-800">
+
+    <nav class="bg-white border-b border-gray-100 sticky top-0 z-50 shadow-sm">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <div class="flex-shrink-0">
+                    <a href="/" class="text-xl font-bold text-teal-700 tracking-wider flex items-center gap-1">
+                        <span>TravelMate</span><span class="text-xs">🇱🇰</span>
+                    </a>
+                </div>
+                <div class="hidden md:flex space-x-8 text-sm font-medium">
+                    <a href="/" class="text-gray-500 hover:text-teal-600 transition px-1 pt-1">Home</a>
+                    <a href="/destinations" class="text-teal-600 border-b-2 border-teal-600 px-1 pt-1">Destinations</a>
+                    <a href="/#reviews" class="text-gray-500 hover:text-teal-600 transition px-1 pt-1">Reviews</a>
+                    <a href="/#contact" class="text-gray-500 hover:text-teal-600 transition px-1 pt-1">Contact Us</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="py-12 max-w-6xl mx-auto px-4">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl font-extrabold text-gray-900 mb-3">Popular Sri Lankan Destinations 🗺️</h2>
+            <p class="text-gray-500 max-w-lg mx-auto text-sm md:text-base">Click on a category to filter places, and click on any image to see a quick travel guide!</p>
+        </div>
+        
+        <div class="flex justify-center space-x-2 md:space-x-4 mb-12 flex-wrap gap-y-2">
+            <button onclick="filterCategory('all')" id="btn-all" class="px-5 py-2.5 rounded-full font-semibold text-sm bg-teal-700 text-white shadow transition">All Places</button>
+            <button onclick="filterCategory('coast')" id="btn-coast" class="px-5 py-2.5 rounded-full font-semibold text-sm bg-white border border-gray-200 text-gray-700 hover:bg-gray-50 transition">🏖️ Coastlines</button>
+            <button onclick="filterCategory('hill')" id="btn-hill" class="px-5 py-2.5 rounded-full font-semibold text-sm bg-white border border-gray-200 text-gray-700 hover:bg-gray-50 transition">⛰️ Hill Country</button>
+            <button onclick="filterCategory('safari')" id="btn-safari" class="px-5 py-2.5 rounded-full font-semibold text-sm bg-white border border-gray-200 text-gray-700 hover:bg-gray-50 transition">🦁 Wild Safaris</button>
+        </div>
+
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+            
+            <div class="place-card coast bg-white border border-gray-100 rounded-2xl overflow-hidden shadow-sm cursor-pointer hover:scale-[1.02] transition duration-200" 
+                 onclick="openModal('Mirissa Beach 🏖️', 'Mirissa is famous for its stunning golden beach, vibrant nightlife, and is one of the world\'s best locations for Blue Whale watching between November and April.')">
+                <img src="https://raw.githubusercontent.com/sasindu1319/aaaaa/main/Mirissa.webp" class="w-full h-48 object-cover" alt="Mirissa Beach">
+                <div class="p-4"><h4 class="font-bold text-lg text-gray-950">Mirissa Beach</h4><span class="text-xs text-teal-600 font-medium uppercase tracking-wider">Coastline</span></div>
+            </div>
+
+            <div class="place-card coast bg-white border border-gray-100 rounded-2xl overflow-hidden shadow-sm cursor-pointer hover:scale-[1.02] transition duration-200" 
+                 onclick="openModal('Trincomalee & Nilaveli 🌊', 'Perfect for summer travelers (May to October). Features calm blue seas, Pigeon Island marine sanctuary for snorkeling, and white sandy beaches.')">
+                <img src="https://raw.githubusercontent.com/sasindu1319/aaaaa/main/Trincomalee.webp" class="w-full h-48 object-cover" alt="Trincomalee">
+                <div class="p-4"><h4 class="font-bold text-lg text-gray-950">Trincomalee</h4><span class="text-xs text-teal-600 font-medium uppercase tracking-wider">Coastline</span></div>
+            </div>
+
+            <div class="place-card coast bg-white border border-gray-100 rounded-2xl overflow-hidden shadow-sm cursor-pointer hover:scale-[1.02] transition duration-200" 
+                 onclick="openModal('Unawatuna & Jungle Beach 🏝️', 'A beautiful banana-shaped semicircular bay known for its calm waters, ideal for swimming and family holidays. Don\'t miss the hidden Jungle Beach nearby.')">
+                <img src="https://raw.githubusercontent.com/sasindu1319/aaaaa/main/unawatuna%20bay.webp" class="w-full h-48 object-cover" alt="Unawatuna">
+                <div class="p-4"><h4 class="font-bold text-lg text-gray-950">Unawatuna Bay</h4><span class="text-xs text-teal-600 font-medium uppercase tracking-wider">Coastline</span></div>
+            </div>
+
+            <div class="place-card hill bg-white border border-gray-100 rounded-2xl overflow-hidden shadow-sm cursor-pointer hover:scale-[1.02] transition duration-200" 
+                 onclick="openModal('Ella (Nine Arch Bridge) ⛰️', 'A beautiful mountain town nestled in the highlands. Famous for the iconic colonial-era Nine Arch Bridge, Little Adam\'s Peak, and endless tea estate treks.')">
+                <img src="https://raw.githubusercontent.com/sasindu1319/aaaaa/main/ella.webp" class="w-full h-48 object-cover" alt="Nine Arch Bridge Ella">
+                <div class="p-4"><h4 class="font-bold text-lg text-gray-950">Ella Mountain Valley</h4><span class="text-xs text-amber-600 font-medium uppercase tracking-wider">Hill Country</span></div>
+            </div>
+
+            <div class="place-card hill bg-white border border-gray-100 rounded-2xl overflow-hidden shadow-sm cursor-pointer hover:scale-[1.02] transition duration-200" 
+                 onclick="openModal('Nuwara Eliya (Little England) 🫖', 'Known for its cool climate, colonial-era bungalows, and lush green tea factories. Key attractions include Gregory Lake and Hakgala Botanical Gardens.')">
+                <img src="https://raw.githubusercontent.com/sasindu1319/aaaaa/main/Nuwara-Eliya.webp" class="w-full h-48 object-cover" alt="Nuwara Eliya">
+                <div class="p-4"><h4 class="font-bold text-lg text-gray-950">Nuwara Eliya</h4><span class="text-xs text-amber-600 font-medium uppercase tracking-wider">Hill Country</span></div>
+            </div>
+
+            <div class="place-card hill bg-white border border-gray-100 rounded-2xl overflow-hidden shadow-sm cursor-pointer hover:scale-[1.02] transition duration-200" 
+                 onclick="openModal('Sacred Kandy City 🫖', 'The sacred hill capital of Sri Lanka. Home to the Temple of the Sacred Tooth Relic (Dalada Maligawa), beautiful Kandy Lake, and lush Royal Botanical Gardens.')">
+                <img src="https://raw.githubusercontent.com/sasindu1319/aaaaa/main/kandy.webp" class="w-full h-48 object-cover" alt="Kandy">
+                <div class="p-4"><h4 class="font-bold text-lg text-gray-950">Sacred Kandy City</h4><span class="text-xs text-amber-600 font-medium uppercase tracking-wider">Hill Country</span></div>
+            </div>
+
+            <div class="place-card hill bg-white border border-gray-100 rounded-2xl overflow-hidden shadow-sm cursor-pointer hover:scale-[1.02] transition duration-200" 
+                 onclick="openModal('Sigiriya Rock Fortress 👑', 'An ancient rock fortress and palace network built by King Kashyapa. Revered as the 8th Wonder of the World, famous for its frescoes and advanced hydraulic gardens.')">
+                <img src="https://raw.githubusercontent.com/sasindu1319/aaaaa/main/Sigirya.webp" class="w-full h-48 object-cover" alt="Sigiriya">
+                <div class="p-4"><h4 class="font-bold text-lg text-gray-950">Sigiriya Rock</h4><span class="text-xs text-amber-600 font-medium uppercase tracking-wider">Hill Country</span></div>
+            </div>
+
+            <div class="place-card safari bg-white border border-gray-100 rounded-2xl overflow-hidden shadow-sm cursor-pointer hover:scale-[1.02] transition duration-200" 
+                 onclick="openModal('Yala National Park Safari 🐆', 'One of the best places in Asia to spot the elusive Sri Lankan Leopard. It also hosts massive herds of wild elephants, sloth bears, and crocodiles.')">
+                <img src="https://raw.githubusercontent.com/sasindu1319/aaaaa/main/yala.webp" class="w-full h-48 object-cover" alt="Yala Safari Leopard">
+                <div class="p-4"><h4 class="font-bold text-lg text-gray-950">Yala National Park</h4><span class="text-xs text-purple-600 font-medium uppercase tracking-wider">Wild Safari</span></div>
+            </div>
+
+            <div class="place-card safari bg-white border border-gray-100 rounded-2xl overflow-hidden shadow-sm cursor-pointer hover:scale-[1.02] transition duration-200" 
+                 onclick="openModal('Minneriya Elephant Gathering 🐘', 'Famous for \'The Gathering\' during August-September, where hundreds of wild Asian elephants congregate around the ancient Minneriya tank.')">
+                <img src="https://raw.githubusercontent.com/sasindu1319/aaaaa/main/Minneriya.jpg" class="w-full h-48 object-cover" alt="Minneriya Elephants">
+                <div class="p-4"><h4 class="font-bold text-lg text-gray-950">Minneriya Reservoir</h4><span class="text-xs text-purple-600 font-medium uppercase tracking-wider">Wild Safari</span></div>
+            </div>
+
+            <div class="place-card safari bg-white border border-gray-100 rounded-2xl overflow-hidden shadow-sm cursor-pointer hover:scale-[1.02] transition duration-200" 
+                 onclick="openModal('Udawalawe National Park 🌿', 'An unmatched habitat for Sri Lankan wild elephants. Guaranteed sightings of herds year-round, alongside exotic water birds, eagles, and water buffaloes.')">
+                <img src="https://raw.githubusercontent.com/sasindu1319/aaaaa/main/udawalawa.webp" class="w-full h-48 object-cover" alt="Udawalawe">
+                <div class="p-4"><h4 class="font-bold text-lg text-gray-950">Udawalawe Safari</h4><span class="text-xs text-purple-600 font-medium uppercase tracking-wider">Wild Safari</span></div>
+            </div>
+
+            <div class="place-card safari bg-white border border-gray-100 rounded-2xl overflow-hidden shadow-sm cursor-pointer hover:scale-[1.02] transition duration-200" 
+                 onclick="openModal('Wilpattu Lakes & Forests 🐻', 'Sri Lanka\'s largest national park, famous for its unique natural rainwater lakes (Willus). Excellent for spotting sloth bears, leopards, and barking deer.')">
+                <img src="https://raw.githubusercontent.com/sasindu1319/aaaaa/main/Wilpattu.webp" class="w-full h-48 object-cover" alt="Wilpattu">
+                <div class="p-4"><h4 class="font-bold text-lg text-gray-950">Wilpattu National Park</h4><span class="text-xs text-purple-600 font-medium uppercase tracking-wider">Wild Safari</span></div>
+            </div>
+
+        </div>       
+        </div>
+    <div id="details-modal" class="fixed inset-0 bg-black/60 backdrop-blur-sm hidden items-center justify-center z-50 p-4 transition-all duration-300">
+        <div class="bg-white max-w-md w-full rounded-2xl p-6 shadow-2xl relative transform scale-95 transition-transform duration-300">
+            <button onclick="closeModal()" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600 text-xl font-bold">&times;</button>
+            <h3 id="modal-title" class="text-2xl font-extrabold text-gray-900 mb-3">Place Name</h3>
+            <p id="modal-desc" class="text-gray-600 leading-relaxed text-sm">Short description goes here...</p>
+            <button onclick="closeModal()" class="mt-6 w-full bg-teal-600 hover:bg-teal-700 text-white font-semibold py-2.5 rounded-xl transition">Close</button>
+        </div>
+    </div>
+
+    <footer class="text-center py-8 text-gray-400 text-xs border-t border-gray-200 mt-20">
+        <p>© 2026 TravelMate Platform.</p>
+    </footer>
+
+    <script>
+        function filterCategory(category) {
+            const cards = document.querySelectorAll('.place-card');
+            const buttons = ['all', 'coast', 'hill', 'safari'];
+            
+            buttons.forEach(btn => {
+                const el = document.getElementById('btn-' + btn);
+                if(btn === category) {
+                    el.className = "px-5 py-2.5 rounded-full font-semibold text-sm bg-teal-700 text-white shadow transition";
+                } else {
+                    el.className = "px-5 py-2.5 rounded-full font-semibold text-sm bg-white border border-gray-200 text-gray-700 hover:bg-gray-50 transition";
+                }
+            });
+
+            cards.forEach(card => {
+                if (category === 'all' || card.classList.contains(category)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        function openModal(title, description) {
+            document.getElementById('modal-title').innerText = title;
+            document.getElementById('modal-desc').innerText = description;
+            const modal = document.getElementById('details-modal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('details-modal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TravelMate - Plan Your Sri Lankan Holiday</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 font-sans antialiased text-gray-800">
+
+<nav class="bg-white shadow-sm border-b border-gray-200 sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between h-16 items-center">
+            
+            <div class="flex-shrink-0">
+                <a href="/" class="text-xl font-bold text-teal-700 tracking-wider flex items-center gap-1">
+                    <span>TravelMate</span><span class="text-xs">🇱🇰</span>
+                </a>
+            </div>
+            
+            <div class="hidden md:flex items-center space-x-8 text-sm font-medium">
+                <a href="/" class="text-gray-500 hover:text-teal-600 transition">Home</a>
+                <a href="/destinations" class="text-gray-500 hover:text-teal-600 transition">Destinations</a>
+                <a href="/reviews" class="text-gray-500 hover:text-teal-600 transition">Reviews</a>
+                
+                {% if session.get('user_id') %}
+                    <span class="text-teal-600 bg-teal-50 px-3 py-1 rounded-full border border-teal-100 text-xs font-semibold">
+                        👤 Hi, {{ session.get('user_name', 'User') }}
+                    </span>
+                    <a href="/logout" class="bg-red-500 hover:bg-red-600 text-white font-semibold py-2 px-4 rounded-xl transition duration-200 shadow-sm text-xs">
+                        Logout 🏃‍♂️
+                    </a>
+                {% else %}
+                    <a href="/login" class="bg-teal-600 hover:bg-teal-700 text-white font-semibold py-2 px-5 rounded-xl transition duration-200 shadow-md text-xs">
+                        Sign In 🔑
+                    </a>
+                {% endif %}
+            </div>
+
+            <div class="flex items-center md:hidden">
+                <button id="mobile-menu-btn" type="button" class="text-gray-500 hover:text-teal-600 focus:outline-none p-2 rounded-xl bg-gray-50 transition">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+
+        </div>
+    </div>
+
+    <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 px-4 pt-2 pb-4 space-y-2 shadow-inner">
+        <a href="/" class="block text-sm font-semibold text-gray-700 hover:bg-gray-50 px-3 py-2.5 rounded-xl transition">Home</a>
+        <a href="/destinations" class="block text-sm font-semibold text-gray-700 hover:bg-gray-50 px-3 py-2.5 rounded-xl transition">Destinations</a>
+        <a href="/reviews" class="block text-sm font-semibold text-gray-700 hover:bg-gray-50 px-3 py-2.5 rounded-xl transition">Reviews</a>
+        
+        {% if session.get('user_id') %}
+            <div class="pt-2 border-t border-gray-100 space-y-2">
+                <span class="block text-teal-600 bg-teal-50 px-3 py-2 rounded-xl text-xs font-semibold text-center">
+                    👤 Hi, {{ session.get('user_name', 'User') }}
+                </span>
+                <a href="/logout" class="block text-center bg-red-500 hover:bg-red-600 text-white font-semibold py-2.5 px-4 rounded-xl transition text-xs">
+                    Logout 🏃‍♂️
+                </a>
+            </div>
+        {% else %}
+            <div class="pt-2 border-t border-gray-100">
+                <a href="/login" class="block text-center bg-teal-600 hover:bg-teal-700 text-white font-semibold py-2.5 px-5 rounded-xl transition text-xs shadow">
+                    Sign In 🔑
+                </a>
+            </div>
+        {% endif %}
+    </div>
+</nav>
+
+<div class="relative h-[65vh] md:h-[75vh] w-full overflow-hidden bg-gray-950">
+    <div class="absolute inset-0 bg-black/40 z-10 pointer-events-none"></div>
+
+    <div id="grid-slideshow" class="w-full h-full relative">
+        <div class="grid-slide absolute inset-0 w-full h-full grid grid-cols-2 md:grid-cols-4 transition-all duration-1000 ease-in-out opacity-100 z-10">
+            <div class="h-full bg-cover bg-center" style="background-image: url('https://raw.githubusercontent.com/sasindu1319/aaaaa/main/Sigirya.webp');"></div>
+            <div class="h-full bg-cover bg-center" style="background-image: url('https://raw.githubusercontent.com/sasindu1319/aaaaa/main/Mirissa.webp');"></div>
+            <div class="h-full bg-cover bg-center" style="background-image: url('https://raw.githubusercontent.com/sasindu1319/aaaaa/main/ella.webp');"></div>
+            <div class="h-full bg-cover bg-center" style="background-image: url('https://raw.githubusercontent.com/sasindu1319/aaaaa/main/pottuvil-point-sri-lanka.webp');"></div>
+        </div>
+
+        <div class="grid-slide absolute inset-0 w-full h-full grid grid-cols-2 md:grid-cols-4 transition-all duration-1000 ease-in-out opacity-0 z-0">
+            <div class="h-full bg-cover bg-center" style="background-image: url('https://raw.githubusercontent.com/sasindu1319/aaaaa/main/HIkkaduwa beach.webp');"></div>
+            <div class="h-full bg-cover bg-center" style="background-image: url('https://raw.githubusercontent.com/sasindu1319/aaaaa/main/Minneriya.jpg');"></div>
+            <div class="h-full bg-cover bg-center" style="background-image: url('https://raw.githubusercontent.com/sasindu1319/aaaaa/main/Nuwara-Eliya.webp');"></div>
+            <div class="h-full bg-cover bg-center" style="background-image: url('https://raw.githubusercontent.com/sasindu1319/aaaaa/main/Wilpattu.webp');"></div>
+        </div>
+
+        <div class="grid-slide absolute inset-0 w-full h-full grid grid-cols-2 md:grid-cols-4 transition-all duration-1000 ease-in-out opacity-0 z-0">
+            <div class="h-full bg-cover bg-center" style="background-image: url('https://raw.githubusercontent.com/sasindu1319/aaaaa/main/kandy.webp');"></div>
+            <div class="h-full bg-cover bg-center" style="background-image: url('https://raw.githubusercontent.com/sasindu1319/aaaaa/main/udawalawa.webp');"></div>
+            <div class="h-full bg-cover bg-center" style="background-image: url('https://raw.githubusercontent.com/sasindu1319/aaaaa/main/unawatuna%20bay.webp');"></div>
+            <div class="h-full bg-cover bg-center" style="background-image: url('https://raw.githubusercontent.com/sasindu1319/aaaaa/main/yala.webp');"></div>
+        </div>
+    </div>
+
+    <div class="absolute inset-0 flex flex-col items-center justify-center z-20 text-center text-white px-4 max-w-4xl mx-auto pointer-events-none">
+        <h1 class="text-3xl md:text-6xl font-extrabold tracking-tight mb-4 drop-shadow-lg select-none">
+            Welcome to TravelMate <span class="text-xs align-super bg-teal-600 px-2 py-0.5 rounded">LK</span>
+        </h1>
+        <p class="text-sm md:text-xl max-w-2xl mx-auto font-light leading-relaxed opacity-95 drop-shadow-md bg-black/20 backdrop-blur-[2px] p-4 rounded-2xl select-none">
+            Plan your Sri Lankan dream holiday with a smart, weather-optimized itinerary. Connect directly with local drivers—100% middleman and commission-free!
+        </p>
+    </div>
+
+    <div class="absolute bottom-5 left-1/2 transform -translate-x-1/2 flex space-x-2 z-20">
+        <span class="grid-dot w-8 h-1.5 rounded-full bg-white transition-all duration-300 cursor-pointer"></span>
+        <span class="grid-dot w-3 h-1.5 rounded-full bg-white/50 transition-all duration-300 cursor-pointer"></span>
+        <span class="grid-dot w-3 h-1.5 rounded-full bg-white/50 transition-all duration-300 cursor-pointer"></span>
+    </div>
+</div>
+
+<div class="max-w-6xl mx-auto px-4 py-16 grid grid-cols-1 md:grid-cols-2 gap-12">
+    <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-8 text-center flex flex-col justify-between transform hover:scale-[1.01] transition duration-200">
+        <div>
+            <div class="text-5xl mb-4">✈️</div>
+            <h3 class="text-2xl font-bold text-gray-900 mb-2">For International Tourists</h3>
+            <p class="text-gray-600 mb-8">Create your customized day-by-day tour plan based on local monsoons, seasons, and find verified budget-friendly drivers.</p>
+        </div>
+        <div class="space-y-3">
+            <a href="/plan" class="block w-full bg-teal-600 hover:bg-teal-700 text-white font-semibold py-3 px-6 rounded-xl shadow-md transition">🗺️ Plan My Trip Now</a>
+            <a href="/register" class="block w-full bg-gray-100 hover:bg-gray-200 text-gray-700 font-semibold py-3 px-6 rounded-xl transition">Create Tourist Account</a>
+        </div>
+    </div>
+
+    <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-8 text-center flex flex-col justify-between transform hover:scale-[1.01] transition duration-200">
+        <div>
+            <div class="text-5xl mb-4">🛺</div>
+            <h3 class="text-2xl font-bold text-gray-900 mb-2">For Local Sri Lankan Drivers</h3>
+            <p class="text-gray-600 mb-8">Register your Tuk-Tuk, Car, or Van. Get direct bookings from global travelers without paying hefty tour-agency commissions.</p>
+        </div>
+        <div class="space-y-3">
+            <a href="/register_driver" class="block w-full bg-amber-500 hover:bg-amber-600 text-white font-semibold py-3 px-6 rounded-xl shadow-md transition">🤝 Join as a Partner Driver</a>
+            <a href="/drivers" class="block w-full bg-purple-600 hover:bg-purple-700 text-white font-semibold py-3 px-6 rounded-xl shadow-md transition">📇 View Driver Directory</a>
+        </div>
+    </div>
+</div>
+
+<div id="destinations" class="bg-white py-16 border-t border-gray-100">
+    <div class="max-w-6xl mx-auto px-4">
+        <h2 class="text-3xl font-extrabold text-gray-900 text-center mb-4">Popular Sri Lankan Destinations 🗺️</h2>
+        <p class="text-center text-gray-500 mb-12 max-w-lg mx-auto">Explore the top seasonal zones carefully selected by our smart routing algorithm.</p>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="bg-gray-50 rounded-xl p-6 shadow-sm"><h4 class="font-bold text-lg mb-2">🏖️ Coastlines</h4><p class="text-sm text-gray-600">Mirissa & Hikkaduwa for winters, Arugam Bay & Trincomalee for summer surfing.</p></div>
+            <div class="bg-gray-50 rounded-xl p-6 shadow-sm"><h4 class="font-bold text-lg mb-2">⛰️ Hill Country</h4><p class="text-sm text-gray-600">Ella, Nuwara Eliya, and Kandy. Perfect green tea gardens and mountain treks year-round.</p></div>
+            <div class="bg-gray-50 rounded-xl p-6 shadow-sm"><h4 class="font-bold text-lg mb-2">🦁 Wild Safaris</h4><p class="text-sm text-gray-600">Yala National Park and Minneriya elephant gatherings optimized by actual seasons.</p></div>
+        </div>
+    </div>
+</div>
+
+<div class="bg-gray-50 py-16 border-t border-gray-100 text-center">
+    <div class="max-w-6xl mx-auto px-4">
+        <h2 class="text-3xl font-extrabold text-gray-900 mb-4">What Travelers Say ⭐</h2>
+        <p class="text-gray-500 mb-8 max-w-md mx-auto">Read real experiences from global travelers and verified local drivers on our platform.</p>
+        <a href="/reviews" class="inline-block bg-teal-600 hover:bg-teal-700 text-white font-semibold py-3 px-8 rounded-xl shadow-md transition">💬 View All Live Reviews</a>
+    </div>
+</div>
+
+<footer class="text-center text-gray-500 text-sm border-t border-gray-200">
+    <div id="contact" class="bg-teal-800 text-white py-16">
+        <div class="max-w-4xl mx-auto px-4 text-center">
+            <h2 class="text-3xl font-extrabold mb-4">Have Questions About Sri Lanka? 🇱🇰</h2>
+            <p class="opacity-90 mb-8 max-w-md mx-auto">Our local support team and community are here to help you guide your pathway safely.</p>
+            <div class="text-sm space-y-2 opacity-80">
+                <p>📧 Email: support@travelmate.lk</p>
+                <p>📞 Hotline: +94 701249304</p>
+                <p>📍 Address: Moratuwa, Sri Lanka.</p>
+            </div>
+        </div>
+    </div>
+    <div class="py-8 bg-gray-100">
+        <p>© 2026 TravelMate Platform. Empowering local communities & sustainable tourism 💚</p>
+    </div>
+</footer>
+
+<script>
+    // 📱 Mobile Menu Toggle logic
+    const menuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    menuBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+    });
+
+    // 🔄 Automatic Grid Slideshow Logic (Fixed z-index layers & opacity timing)
+    let currentGridGroup = 0;
+    const gridSlides = document.querySelectorAll('.grid-slide');
+    const gridDots = document.querySelectorAll('.grid-dot');
+    const totalGroups = gridSlides.length;
+
+    function nextGridGroup() {
+        // පරණ පේළිය නොපෙනෙන්න සලස්වා යට තට්ටුවට (z-0) යවනවා
+        gridSlides[currentGridGroup].classList.remove('opacity-100', 'z-10');
+        gridSlides[currentGridGroup].classList.add('opacity-0', 'z-0');
+        
+        if(gridDots[currentGridGroup]) {
+            gridDots[currentGridGroup].classList.remove('w-8', 'bg-white');
+            gridDots[currentGridGroup].classList.add('w-3', 'bg-white/50');
+        }
+
+        // ඊළඟ Slide එක තෝරාගැනීම
+        currentGridGroup = (currentGridGroup + 1) % totalGroups;
+
+        // අලුත් පේළිය සම්පූර්ණයෙන්ම උඩ තට්ටුවට (z-10) ගෙනවිත් දර්ශනය කරනවා
+        gridSlides[currentGridGroup].classList.remove('opacity-0', 'z-0');
+        gridSlides[currentGridGroup].classList.add('opacity-100', 'z-10');
+        
+        if(gridDots[currentGridGroup]) {
+            gridDots[currentGridGroup].classList.remove('w-3', 'bg-white/50');
+            gridDots[currentGridGroup].classList.add('w-8', 'bg-white');
+        }
+    }
+    setInterval(nextGridGroup, 4500);
+</script>
+
+</body>
+</html>

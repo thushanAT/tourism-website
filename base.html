@@ -1,0 +1,19 @@
+<nav>
+    <a href="/">Home</a>
+    <a href="/destinations">Destinations</a>
+    <a href="/drivers">Drivers</a>
+    <a href="/reviews">Reviews</a>
+
+    {% if 'user_name' in session %}
+        <span>Hello, {{ session['user_name'] }}!</span>
+        <a href="/logout">Logout</a>
+    {% else %}
+        <a href="/login">Login</a>
+        <a href="/register">Register</a>
+    {% endif %}
+</nav>
+
+<hr>
+
+{% block content %}
+{% endblock %}

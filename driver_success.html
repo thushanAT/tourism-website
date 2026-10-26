@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Successful - TravelMate Driver</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 font-sans text-gray-800 py-12 px-4 flex items-center justify-center min-h-screen">
+
+    <div class="w-full max-w-xl bg-white rounded-3xl shadow-xl border border-gray-100 p-8 md:p-10 text-center">
+        
+        <div class="mx-auto flex items-center justify-center h-20 w-20 rounded-full bg-green-100 mb-6 animate-bounce">
+            <svg class="h-10 w-10 text-green-600" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+            </svg>
+        </div>
+
+        <h2 class="text-3xl font-extrabold text-gray-900 mb-3 tracking-tight">Driver Registration Successful! 🎉</h2>
+        <p class="text-gray-600 text-md mb-8">
+            Welcome aboard, <span class="font-bold text-teal-600">{{ driver_name }}</span>! Your driver profile has been successfully created in TravelMate LK.
+        </p>
+
+        <div class="bg-gray-50 border border-gray-100 rounded-2xl p-6 text-left mb-8">
+            <h3 class="text-sm font-bold uppercase tracking-wider text-gray-500 mb-4 flex items-center">
+                <svg class="w-4 h-4 mr-2 text-teal-600" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z" clip-rule="evenodd"/>
+                </svg>
+                What's Next?
+            </h3>
+            
+            <div class="space-y-4">
+                <div class="flex items-start">
+                    <div class="flex-shrink-0 bg-teal-600 text-white font-semibold rounded-lg text-xs w-6 h-6 flex items-center justify-center mt-0.5 shadow-sm">1</div>
+                    <p class="ml-3 text-sm text-gray-600 font-medium"><span class="text-gray-900 font-bold">Profile Verification:</span> Our admin panel team will review your contact phone number and vehicle details within 24 hours.</p>
+                </div>
+                <div class="flex items-start">
+                    <div class="flex-shrink-0 bg-teal-600 text-white font-semibold rounded-lg text-xs w-6 h-6 flex items-center justify-center mt-0.5 shadow-sm">2</div>
+                    <p class="ml-3 text-sm text-gray-600 font-medium"><span class="text-gray-900 font-bold">Go Live on Directory:</span> Once approved, tourists can directly find you on the <span class="italic font-semibold text-teal-600">"Drivers"</span> tab!</p>
+                </div>
+                <div class="flex items-start">
+                    <div class="flex-shrink-0 bg-teal-600 text-white font-semibold rounded-lg text-xs w-6 h-6 flex items-center justify-center mt-0.5 shadow-sm">3</div>
+                    <p class="ml-3 text-sm text-gray-600 font-medium"><span class="text-gray-900 font-bold">Receive Bookings:</span> Foreigners can contact you directly via Phone or WhatsApp 100% commission-free!</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="flex flex-col sm:flex-row gap-3 justify-center items-center">
+            <a href="/" class="w-full sm:w-auto bg-teal-600 hover:bg-teal-700 text-white font-semibold px-6 py-3 rounded-xl shadow-md transition-all duration-200">
+                Go to Homepage 🏠
+            </a>
+            <a href="/login" class="w-full sm:w-auto bg-white border border-gray-300 hover:bg-gray-50 text-gray-700 font-semibold px-6 py-3 rounded-xl shadow-sm transition-all duration-200">
+                Login to Account 🔑
+            </a>
+        </div>
+
+        <p class="text-xs text-gray-400 mt-8">Thank you for partnering with TravelMate LK — Sri Lanka's Best Commission-Free Travel Network.</p>
+    </div>
+
+</body>
+</html>

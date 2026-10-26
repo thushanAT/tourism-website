@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tourist Registration - TravelMate</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 font-sans text-gray-800 py-12 px-4 flex items-center justify-center min-h-screen">
+
+    <div class="w-full max-w-md bg-white rounded-2xl shadow-md border border-gray-100 p-8">
+        
+        {% with messages = get_flashed_messages(with_categories=true) %}
+          {% if messages %}
+            {% for category, message in messages %}
+              {% if category == 'error' %}
+                <div class="mb-5 flex items-start p-4 text-sm text-red-800 border-t-4 border-red-500 bg-red-50 rounded-xl shadow-sm" role="alert">
+                  <svg class="flex-shrink-0 inline w-4 h-4 me-3 mt-0.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"/>
+                  </svg>
+                  <div class="font-medium">
+                    {{ message }}
+                  </div>
+                </div>
+              {% else %}
+                <div class="mb-5 flex items-start p-4 text-sm text-green-800 border-t-4 border-green-500 bg-green-50 rounded-xl shadow-sm" role="alert">
+                  <svg class="flex-shrink-0 inline w-4 h-4 me-3 mt-0.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM13.485 7.757a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0l-2.25-2.25a.75.75 0 1 1 1.06-1.06l1.72 1.72 3.72-3.72a.75.75 0 0 1 1.06 0Z"/>
+                  </svg>
+                  <div class="font-medium">
+                    {{ message }}
+                  </div>
+                </div>
+              {% endif %}
+            {% endfor %}
+          {% endif %}
+        {% endwith %}
+
+        <h2 class="text-2xl font-bold text-gray-900 mb-2">Create Tourist Account ✈️</h2>
+        <p class="text-gray-500 text-sm mb-6">Join TravelMate to unlock custom holiday paths.</p>
+        
+        <form method="POST" class="space-y-4">
+            <div>
+                <label class="block text-xs font-semibold uppercase tracking-wider text-gray-600 mb-1">Full Name</label>
+                <input type="text" name="name" class="w-full px-4 py-2.5 border border-gray-300 rounded-xl focus:ring-2 focus:ring-teal-500 outline-none transition text-sm" placeholder="John Doe" required>
+            </div>
+            
+            <div>
+                <label class="block text-xs font-semibold uppercase tracking-wider text-gray-600 mb-1">Email Address</label>
+                <input type="email" name="email" class="w-full px-4 py-2.5 border border-gray-300 rounded-xl focus:ring-2 focus:ring-teal-500 outline-none transition text-sm" placeholder="john@example.com" required>
+            </div>
+            
+            <div>
+                <label class="block text-xs font-semibold uppercase tracking-wider text-gray-600 mb-1">Password</label>
+                <input type="password" name="password" class="w-full px-4 py-2.5 border border-gray-300 rounded-xl focus:ring-2 focus:ring-teal-500 outline-none transition text-sm" placeholder="••••••••" required>
+            </div>
+            
+            <div>
+                <label class="block text-xs font-semibold uppercase tracking-wider text-gray-600 mb-1">Nationality</label>
+                <input type="text" name="nationality" class="w-full px-4 py-2.5 border border-gray-300 rounded-xl focus:ring-2 focus:ring-teal-500 outline-none transition text-sm" placeholder="e.g. British, German" required>
+            </div>
+            
+            <button type="submit" class="w-full bg-teal-600 hover:bg-teal-700 text-white font-semibold py-2.5 rounded-xl shadow transition mt-2">
+                Register
+            </button>
+        </form>
+        
+        <div class="mt-6 text-center border-t border-gray-100 pt-4">
+            <a href="/" class="text-xs font-medium text-gray-500 hover:text-teal-600 transition">⬅️ Cancel and Go Home</a>
+        </div>
+    </div>
+
+</body>
